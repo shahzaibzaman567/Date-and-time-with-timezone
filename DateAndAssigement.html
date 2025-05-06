@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date And Time</title>
+    <style>
+        li{
+            font-size: 30px;
+
+        }
+        h2{
+            border-bottom: 9px  solid black;
+            width:200px 
+        }
+    </style>
+</head>
+<body>
+    
+       
+    
+    
+      <h1> 📝 7 JavaScript Assignments on Date & Time (اسائنمنٹس)</h1>
+<ul>
+       <h2> 1. Assignment 1:</h2>
+       <li> 🛠 اپنی سالگرہ کی تاریخ کا دن معلوم کرنے کے لیے JavaScript کا استعمال کریں۔
+    </li>
+    <li> 🔹 Write JavaScript to find the day of the week for your birthday.
+    </li>
+        <li> 💡 Hint: Use getDay() (0 = Sunday, 1 = Monday, etc.)
+        </li>
+       
+        <h2>2. Assignment 2:</h2>
+        <li>🛠 پاکستان اور نیویارک کے موجودہ وقت کا موازنہ کرنے کے لیے JavaScript کوڈ لکھیں۔
+        </li>
+        <li> 🔹 Write JavaScript to compare the current time in Pakistan and New York.
+        </li>
+            <li> 💡 Hint: Use Intl.DateTimeFormat() for different time zones.
+            </li>
+        
+            <h2>3. Assignment 3:</h2>
+        <li> 🛠 12 گھنٹے کے فارمیٹ کو 24 گھنٹے کے فارمیٹ میں تبدیل کرنے کے لیے ایک فنکشن لکھیں۔
+        </li>
+            <li>🔹 Write a function to convert 12-hour format time to 24-hour format.
+            </li>
+                <li> 💡 Hint: Use split(":") and parseInt().
+                </li>
+
+                <h2> 4. Assignment 4:</h2>
+        <li> 🛠 مندرجہ ذیل تاریخوں میں غلطیوں کو درست کریں اور درست تاریخ حاصل کریں:
+        </li>
+            <li> 🔹 Correct the following incorrect dates using JavaScript:
+            </li>
+        
+                <li>"31/02/2023"
+                </li>
+                    <li>  "12-13-2024"
+                    </li>
+                        <li> "25/12/2025"
+                        </li>
+                            <li>💡 Hint: Check if the date is valid using the Date object.
+                            </li>
+        
+                            <h2>5. Assignment 5:</h2>
+        <li> 🛠 دنیا کے پانچ مختلف ممالک کے موجودہ وقت کا موازنہ کریں۔
+    </li>
+        <li>🔹 Compare the current time in five different countries.
+    </li>
+
+        <li>💡 Hint: Use Intl.DateTimeFormat() with different locales.
+    </li>
+
+        
+    <h2>6. Assignment 6:</h2>
+        <li> 🛠 "ٹائم زون" (Time Zones) کیا ہوتے ہیں؟ جاوا اسکرپٹ میں کم از کم تین مختلف ٹائم زونز کے مطابق وقت دکھائیں۔
+    </li>
+
+        <li> 🔹 Explain time zones and display the time in at least three different zones using JavaScript.
+    </li>
+
+            <li> 💡 Hint: Use toLocaleString() with different time zones.
+    </li>
+
+        
+    <h2>7. Assignment 7:</h2>
+        <li>  🛠 ایک گاڑی 2:30 PM پر کراچی سے روانہ ہوتی ہے اور 5 گھنٹے 15 منٹ بعد لاہور پہنچتی ہے، تو وہ کس وقت لاہور پہنچے گی؟
+    </li>
+
+            <li> 🔹 A car leaves Karachi at 2:30 PM and arrives in Lahore after 5 hours and 15 minutes. Write JavaScript to calculate the arrival time.
+    </li>
+
+                <li> 💡 Hint: Use setHours() and setMinutes().
+    </li>
+
+    </ul>
+     <h1>   ✅ یہ اسائنمنٹس مکمل کرنے کے بعد، آپ جاوا اسکرپٹ میں تاریخ اور وقت کے بارے میں مہارت حاصل کر لیں گے۔
+     </br>
+        ✅ By completing these assignments, you’ll master JavaScript’s Date & Time handling.
+<br>
+    </br>
+        اگر کسی سوال میں مشکل ہو، تو بلا جھجک پوچھیں! 😊🚀
+    </br>
+
+        If you have any questions, feel free to ask!
+    </br>
+
+    </h1>
+
+<script>
+console.log("-->Question number  one")
+let birthday=new Date("2009-09-15")
+let  day =birthday.getDay()
+let DayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+console.log("My Birth Day  :"+DayOfWeek[day])
+
+console.log("-->Question number  Two")
+
+let Pakistan_Time=new Intl.DateTimeFormat("en-PK",
+{
+    timeStyle:"short",
+    dateStyle:"short"
+}).format(new Date())
+
+let NewYork_Time=new Intl.DateTimeFormat("en-us",{
+    timeStyle:"short",
+    dateStyle:"short",
+    timeZone:'America/New_York'
+}).format(new Date())
+console.log("Pakistan Standered Time :"+Pakistan_Time)
+console.log("New York Standered Time :"+NewYork_Time)
+
+console.log("Question 3")
+
+function convertTo24Formate(time12h) {
+    // وقت اور AM/PM کو الگ کریں
+    let [time, modifer] = time12h.split(" ");
+
+    // وقت کو گھنٹے اور منٹ میں الگ کریں
+    let [hours, minutes] = time.split(":");
+    hours=parseInt(hours)
+
+    if(modifer==="AM" && hours===12){
+hours=0;
+}
+else if(modifer=== "PM" && hours !==12){
+    hours+=12
+}
+let  Hours= hours < 10 ? "0" + hours :hours;
+
+
+return  `${hours}:${minutes}`
+
+}
+let s=convertTo24Formate("1:30 PM")
+
+console.log(s)
+
+
+console.log("Question  6") 
+
+
+   let Timezone= 
+  [ new Date().toLocaleString('ur-PK',{
+    timeZone:'Asia/Karachi'
+    }),
+    new Date().toLocaleString('en-us',{
+    timeZone:'America/New_York'
+    }) ,  
+    new Date().toLocaleString('en-GB',{
+    timeZone:'Europe/London'
+    }),
+    new Date().toLocaleString('hi-in',{
+    timeZone:'Asia/Kolkata'
+    }),
+    new Date().toLocaleString('ar-SA',{
+    timeZone:'Asia/Riyadh'
+    }),
+]
+console.log(Timezone[0])
+console.log(Timezone[1])
+console.log(Timezone[2])
+console.log(Timezone[3])
+console.log(Timezone[4])
+
+console.log("Question  7")
+
+function car(){
+let SatratTime=new Date();
+SatratTime.setHours(14)
+// console.log(SatratTime)
+SatratTime.setMinutes(30)
+console.log("Start Time :",SatratTime.toLocaleTimeString())
+
+let EndTime=new Date();
+EndTime.setHours(14+5)
+EndTime.setMinutes(30+15)
+console.log("Arrival Time :",EndTime.toLocaleTimeString())
+return EndTime;
+
+}
+ car()
+console.log("Question CHAT")
+// function P1(){
+let date =new Date()
+
+let DATES=date.toLocaleDateString()
+let time=date.toLocaleTimeString()
+console.log("Date :", DATES)
+console.log("Time",time)
+
+console.log("Question  CHAT")
+
+let Year=date.getFullYear()
+let Month=date.getMonth()+1
+let Day=date.getDay()+1
+console.log("Day :",Day)
+console.log("Month",Month)
+console.log("Year :",Year)
+
+
+console.log("Qustion CHAT")
+
+
+
+let SatratTime=new Date();
+SatratTime.setHours(14)
+console.log(SatratTime.toTimeString())
+
+let mojodaTime=date.toLocaleTimeString()
+console.log(mojodaTime)
+
+
+
+// return  DATEs,Time;
+
+// }
+// let c=P1()
+// P1()
+
+
+
+
+
+
+
+
+
+//Kashif Practice
+
+// let TravelTime=new Date();
+// TravelTime.setHours(14);
+// console.log(TravelTime)
+// TravelTime.setMinutes(30);
+// console.log(TravelTime)
+// let endtime = new Date();
+// endtime.setHours(14 + 5);
+// console.log(endtime)
+// endtime.setMinutes(30 +15);
+// console.log(endtime)
+
+// console.log("travel time and date",TravelTime.toLocaleString())
+// console.log("end time and date",TravelTime.toLocaleString())
+// let n = endtime.toLocaleTimeString();
+
+// console.log("ariving time", n )
+// let EndTime=new Date() 
+// let b =EndTime.setHours(5,15,0,0)
+// // console.log(b,"tt") 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  console.log("New Yourk standerd Time :" + newYork+" /"+NewYork+" /"+Newyork )
+
+// console.log("Q!. bus T(ime Finding going to Karachi ")
+//  let DATE=date
+//  console.log("find the Time :"+DATE.setMinutes(6))
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
